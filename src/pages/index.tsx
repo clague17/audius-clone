@@ -9,11 +9,12 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
   const [trendingTracks, setTrendingTracks] = useState<Array<Track>>([])
   useEffect(() => {
-    let req = 'http://localhost:3000/api/get_trending'
+    let host = 'https://audius-clone.vercel.app'
+    let localhost = 'http://localhost:3000'
+    let req = `${host}/api/get_trending`
     fetch(req)
       .then((res) => res.json())
       .then((body) => {
-        console.log('data', body)
         setTrendingTracks(body.data)
         setIsLoading(false)
       })
