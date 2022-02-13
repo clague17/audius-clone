@@ -1,12 +1,55 @@
 import Head from 'next/head'
+import SongCard from '../components/SongCard'
+
+const audiusHorizontal = '/horizontal_color.png'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <Head>
-        <title>audius clone!</title>
+        <title>audius clone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <div className="3xl:text-2xl 4xl:text-4xl 4xl:leading-normal relative z-10 w-full overflow-x-hidden overflow-y-clip bg-white py-2 text-white sm:text-xl 2xl:text-xl">
+        <div className="relative h-[2rem] w-[200%] w-full animate-marquee overflow-hidden whitespace-nowrap">
+          <span className="flex w-full justify-around">
+            <img
+              className="mx-2 flex h-[2rem]"
+              src={audiusHorizontal}
+              alt="audius logo"
+            />
+            <img
+              className="mx-2 flex h-[2rem]"
+              src={audiusHorizontal}
+              alt="audius logo2"
+            />
+            <img
+              className="mx-2 flex h-[2rem]"
+              src={audiusHorizontal}
+              alt="audius logo3"
+            />
+            <img
+              className="mx-2 flex h-[2rem]"
+              src={audiusHorizontal}
+              alt="audius logo4"
+            />
+            <img
+              className="mx-2 flex h-[2rem]"
+              src={audiusHorizontal}
+              alt="audius logo4"
+            />
+            <img
+              className="mx-2 flex h-[2rem]"
+              src={audiusHorizontal}
+              alt="audius logo4"
+            />
+          </span>
+        </div>
+      </div>
+      <div>
+        <SongCard />
+      </div>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">

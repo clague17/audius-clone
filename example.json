@@ -1,0 +1,47 @@
+{
+  "artwork": {
+    "150x150": "https://creatornode3.audius.co/ipfs/QmX5ZPdf8SJcWzKi9CeGAnprL8hThDS3dU9c1vnCEJPDkJ/150x150.jpg",
+    "480x480": "https://creatornode3.audius.co/ipfs/QmX5ZPdf8SJcWzKi9CeGAnprL8hThDS3dU9c1vnCEJPDkJ/480x480.jpg",
+    "1000x1000": "https://creatornode3.audius.co/ipfs/QmX5ZPdf8SJcWzKi9CeGAnprL8hThDS3dU9c1vnCEJPDkJ/1000x1000.jpg"
+  },
+  "description": "Disclosure x Zedd",
+  "genre": "House",
+  "id": "jEQy4",
+  "mood": "Empowering",
+  "release_date": "Fri Jan 28 2022 09:26:16 GMT-0800",
+  "remix_of": {
+    "tracks": null
+  },
+  "repost_count": 248,
+  "favorite_count": 554,
+  "tags": "disclosure,zedd",
+  "title": "You've Got To Let Go If You Want To Be Free",
+  "user": {
+    "album_count": 1,
+    "bio": "🆕🎵 - https://disclosure.komi.io/",
+    "cover_photo": {
+      "640x": "https://creatornode3.audius.co/ipfs/QmbeYwoHLPvBCikZrDk9UqRhWWFYshTchejjLbutgXWpY6/640x.jpg",
+      "2000x": "https://creatornode3.audius.co/ipfs/QmbeYwoHLPvBCikZrDk9UqRhWWFYshTchejjLbutgXWpY6/2000x.jpg"
+    },
+    "followee_count": 80,
+    "follower_count": 6341,
+    "handle": "disclosure",
+    "id": "E2O1R",
+    "is_verified": true,
+    "location": "London, U.K.",
+    "name": "Disclosure",
+    "playlist_count": 3,
+    "profile_picture": {
+      "150x150": "https://creatornode3.audius.co/ipfs/QmeiFcVqYAnysfeuV6ZNrvoGaYNSjQX5ntcyeBG8Rrgxsb/150x150.jpg",
+      "480x480": "https://creatornode3.audius.co/ipfs/QmeiFcVqYAnysfeuV6ZNrvoGaYNSjQX5ntcyeBG8Rrgxsb/480x480.jpg",
+      "1000x1000": "https://creatornode3.audius.co/ipfs/QmeiFcVqYAnysfeuV6ZNrvoGaYNSjQX5ntcyeBG8Rrgxsb/1000x1000.jpg"
+    },
+    "repost_count": 36,
+    "track_count": 19,
+    "is_deactivated": false
+  },
+  "duration": 254,
+  "downloadable": false,
+  "play_count": 19094,
+  "permalink": "/disclosure/youve-got-to-let-go-if-you-want-to-be-free"
+}
