@@ -67,9 +67,9 @@ export default function Home() {
         </h1>
 
         <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
+          Here's what's{' '}
+          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg text-pink-audius">
+            Trending
           </code>
         </p>
 
