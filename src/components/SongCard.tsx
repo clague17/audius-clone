@@ -6,9 +6,15 @@ import { secsToMins, shortenThousands } from '../utils/utilities'
 type SongCardProps = {
   title: string
   artist: string
-  image: string
   playCount: number
-  favorites: number
+  favoriteCount: number
+  repostCount: number
+  duration: number
+  artwork: {
+    '150x150': 'string'
+    '480x480': 'string'
+    '1000x1000': 'string'
+  }
 }
 
 const formatTime = (time: number) => {
@@ -16,23 +22,23 @@ const formatTime = (time: number) => {
   return `${minutes}:${seconds}`
 }
 
-const SongCard = () => {
+const SongCard = (props: SongCardProps) => {
   return (
-    <div
-      id="parent"
-      className="flex w-full rounded-xl border p-4 drop-shadow-md"
-    >
+    <div id="parent" className="m-4 flex rounded-xl border p-4 drop-shadow-md">
       <div id="img">
-        <img src={Song['artwork']['150x150']} alt="Song Image" />
+        <img src={props['artwork']['150x150']} alt="song image" />
       </div>
-      <div id="details" className="relative ml-4 flex flex-col justify-between">
+      <div
+        id="details"
+        className="relative ml-4 flex w-full flex-col justify-between"
+      >
         <div id="info" className="flex-col overflow-hidden">
           <div id="left" className="line-1 w-[85%] ">
-            <h1 className="truncate text-left text-2xl">{Song.title}</h1>
-            <h1 className="text-left text-lg">{Song.user.name}</h1>
+            <h1 className="truncate text-left text-2xl">{props.title}</h1>
+            <h1 className="text-left text-lg">{props.artist}</h1>
           </div>
           <div id="right" className="absolute top-0 right-0 inline-flex">
-            <h1>{formatTime(Song.duration)}</h1>
+            <h1>{formatTime(props.duration)}</h1>
           </div>
         </div>
         <div
@@ -54,7 +60,7 @@ const SongCard = () => {
                 d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
               />
             </svg>
-            <h1 className="my-auto mx-2">{Song.repost_count} reposts</h1>
+            <h1 className="my-auto mx-2">{props.repostCount} reposts</h1>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="m-auto h-3 w-3"
@@ -67,10 +73,10 @@ const SongCard = () => {
                 clipRule="evenodd"
               />
             </svg>
-            <h1 className="my-auto ml-2">{Song.favorite_count} favorites</h1>
+            <h1 className="my-auto ml-2">{props.favoriteCount} favorites</h1>
           </div>
           <div className="inline-flex">
-            <h1>{shortenThousands(Song.play_count)} plays</h1>
+            <h1>{shortenThousands(props.playCount)} plays</h1>
           </div>
         </div>
         <div id="actions" className="m-0 flex justify-between border-t pt-2">

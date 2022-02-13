@@ -1,55 +1,62 @@
 import Head from 'next/head'
 import SongCard from '../components/SongCard'
-
-const audiusHorizontal = '/horizontal_color.png'
+import Marquee from '../components/Marquee'
+import SongSkeleton from '../components/SongSkeleton'
+import { useEffect, useState } from 'react'
+import { Track } from '../utils/types'
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true)
+  const [trendingTracks, setTrendingTracks] = useState<Array<Track>>([])
+  useEffect(() => {
+    let req = 'http://localhost:3000/api/get_trending'
+    fetch(req)
+      .then((res) => res.json())
+      .then((body) => {
+        console.log('data', body)
+        setTrendingTracks(body.data)
+        setIsLoading(false)
+      })
+  }, [])
+
+  const renderSongsSkeleton = () => {
+    return (
+      <div className="w-full">
+        <SongSkeleton />
+        <SongSkeleton />
+        <SongSkeleton />
+        <SongSkeleton />
+      </div>
+    )
+  }
+
+  const renderTrendingTracks = () => {
+    return (
+      <div>
+        {trendingTracks.map((track, key) => (
+          <div className="w-full">
+            <SongCard
+              key={key}
+              title={track.title}
+              artist={track.user.name}
+              playCount={track.play_count}
+              favoriteCount={track.favorite_count}
+              repostCount={track.repost_count}
+              duration={track.duration}
+              artwork={track.artwork}
+            />
+          </div>
+        ))}
+      </div>
+    )
+  }
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <Head>
         <title>audius clone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div className="3xl:text-2xl 4xl:text-4xl 4xl:leading-normal relative z-10 w-full overflow-x-hidden overflow-y-clip bg-white py-2 text-white sm:text-xl 2xl:text-xl">
-        <div className="relative h-[2rem] w-[200%] w-full animate-marquee overflow-hidden whitespace-nowrap">
-          <span className="flex w-full justify-around">
-            <img
-              className="mx-2 flex h-[2rem]"
-              src={audiusHorizontal}
-              alt="audius logo"
-            />
-            <img
-              className="mx-2 flex h-[2rem]"
-              src={audiusHorizontal}
-              alt="audius logo2"
-            />
-            <img
-              className="mx-2 flex h-[2rem]"
-              src={audiusHorizontal}
-              alt="audius logo3"
-            />
-            <img
-              className="mx-2 flex h-[2rem]"
-              src={audiusHorizontal}
-              alt="audius logo4"
-            />
-            <img
-              className="mx-2 flex h-[2rem]"
-              src={audiusHorizontal}
-              alt="audius logo4"
-            />
-            <img
-              className="mx-2 flex h-[2rem]"
-              src={audiusHorizontal}
-              alt="audius logo4"
-            />
-          </span>
-        </div>
-      </div>
-      <div>
-        <SongCard />
-      </div>
+      <Marquee />
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
@@ -66,47 +73,8 @@ export default function Home() {
           </code>
         </p>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        {isLoading && renderSongsSkeleton()}
+        {trendingTracks && renderTrendingTracks()}
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
