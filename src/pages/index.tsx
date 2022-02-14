@@ -4,6 +4,7 @@ import Marquee from '../components/Marquee'
 import SongSkeleton from '../components/SongSkeleton'
 import { useEffect, useState } from 'react'
 import { Track } from '../utils/types'
+import { RiVipCrownFill, RiArrowRightLine } from 'react-icons/ri'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -35,6 +36,17 @@ export default function Home() {
   const renderTrendingTracks = () => {
     return (
       <div>
+        <div className="flex justify-between rounded-lg bg-purple-audius px-5 py-2 uppercase text-white">
+          <h1 className="flex font-bold">
+            <RiVipCrownFill className="my-auto" /> $AUDIO Rewards
+          </h1>
+          <h1 className="texl-2xl font-medium">
+            Top 5 tracks each week win $Audio
+          </h1>
+          <h1 className="flex font-medium">
+            learn more <RiArrowRightLine className="my-auto" />
+          </h1>
+        </div>
         {trendingTracks.map((track, key) => (
           <div className="w-full">
             <SongCard
@@ -76,7 +88,7 @@ export default function Home() {
         </p>
 
         {isLoading && renderSongsSkeleton()}
-        {trendingTracks && renderTrendingTracks()}
+        {trendingTracks.length > 0 && renderTrendingTracks()}
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">

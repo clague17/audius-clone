@@ -40,7 +40,10 @@ const SongCard = (props: SongCardProps) => {
             <h1 className="truncate text-left text-2xl">{props.title}</h1>
             <h1 className="text-left text-lg">{props.artist}</h1>
           </div>
-          <div id="right" className="absolute top-0 right-0 inline-flex">
+          <div
+            id="right"
+            className="absolute top-0 right-0 inline-flex text-gray-500"
+          >
             <h1>{formatTime(props.duration)}</h1>
           </div>
         </div>
@@ -82,8 +85,11 @@ const SongCard = (props: SongCardProps) => {
             <h1>{shortenThousands(props.playCount)} plays</h1>
           </div>
         </div>
-        <div id="actions" className="m-0 flex justify-between border-t pt-2">
-          <div id="socialBtns" className="flex w-[30%] justify-between">
+        <div
+          id="actions"
+          className="m-0 flex justify-between border-t pt-2 text-gray-400"
+        >
+          <div id="socialBtns" className="flex w-[15%] justify-between">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
