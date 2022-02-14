@@ -12,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     let host = 'https://audius-clone.vercel.app'
     let localhost = 'http://localhost:3000'
-    let req = `${host}/api/get_trending`
+    let req = `${localhost}/api/get_trending`
     fetch(req)
       .then((res) => res.json())
       .then((body) => {
@@ -23,7 +23,7 @@ export default function Home() {
 
   const renderSongsSkeleton = () => {
     return (
-      <div className="w-full">
+      <div className="w-full pt-10">
         <SongSkeleton key={1} />
         <SongSkeleton key={2} />
         <SongSkeleton key={3} />
@@ -36,7 +36,7 @@ export default function Home() {
   const renderTrendingTracks = () => {
     return (
       <div>
-        <div className="flex justify-between rounded-lg bg-purple-audius px-5 py-2 uppercase text-white">
+        <div className="mt-52 flex justify-between rounded-lg bg-purple-audius px-5 py-2 uppercase text-white">
           <h1 className="flex font-bold">
             <RiVipCrownFill className="my-auto" /> $AUDIO Rewards
           </h1>
@@ -71,23 +71,26 @@ export default function Home() {
         <title>audius clone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Marquee />
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-purple-audius" href="https://audius.co">
-            Audius
-          </a>
-        </h1>
+      <main className="flex w-full flex-1 flex-col items-center justify-center bg-gray-100 px-20 text-center">
+        <div className="fixed top-0 z-10 w-full opacity-[97%]">
+          <Marquee />
+          <div className="bg-white pb-4">
+            <h1 className="text-6xl font-bold">
+              Welcome to{' '}
+              <a className="text-purple-audius" href="https://audius.co">
+                Audius
+              </a>
+            </h1>
 
-        <p className="mt-3 text-2xl">
-          Here's what's{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg text-pink-audius">
-            Trending
-          </code>
-        </p>
-
+            <p className="mt-3 text-2xl">
+              Here's what's{' '}
+              <code className="rounded-md bg-gray-100 p-3 font-mono text-lg text-pink-audius">
+                Trending
+              </code>
+            </p>
+          </div>
+        </div>
         {isLoading && renderSongsSkeleton()}
         {trendingTracks.length > 0 && renderTrendingTracks()}
       </main>

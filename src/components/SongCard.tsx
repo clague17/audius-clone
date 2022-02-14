@@ -29,7 +29,10 @@ const formatTime = (time: number) => {
 
 const SongCard = (props: SongCardProps) => {
   return (
-    <div id="parent" className="m-4 flex rounded-xl border p-4 drop-shadow-md">
+    <div
+      id="parent"
+      className="m-4 flex rounded-xl border bg-white p-4 drop-shadow-md"
+    >
       <div className="align-center my-auto mr-2 text-gray-400">
         {props.idx + 1 <= 5 && <RiVipCrownFill />}
         <h1 className="text-md">{props.idx + 1}</h1>
