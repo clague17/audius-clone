@@ -23,10 +23,11 @@ export default function Home() {
   const renderSongsSkeleton = () => {
     return (
       <div className="w-full">
-        <SongSkeleton />
-        <SongSkeleton />
-        <SongSkeleton />
-        <SongSkeleton />
+        <SongSkeleton key={1} />
+        <SongSkeleton key={2} />
+        <SongSkeleton key={3} />
+        <SongSkeleton key={4} />
+        <SongSkeleton key={5} />
       </div>
     )
   }

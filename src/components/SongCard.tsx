@@ -1,7 +1,7 @@
 import react from 'react'
 
 import Song from '../../example.json'
-import { secsToMins, shortenThousands } from '../utils/utilities'
+import { numToHumanReadable, shortenThousands } from '../utils/utilities'
 
 type SongCardProps = {
   title: string
@@ -18,8 +18,11 @@ type SongCardProps = {
 }
 
 const formatTime = (time: number) => {
-  var [minutes, seconds] = secsToMins(time)
-  return `${minutes}:${seconds}`
+  var [hours, minutes, seconds] = numToHumanReadable(time)
+  if (hours == '0') {
+    return `${minutes}:${seconds}`
+  }
+  return `${hours}:${minutes}:${seconds}`
 }
 
 const SongCard = (props: SongCardProps) => {
