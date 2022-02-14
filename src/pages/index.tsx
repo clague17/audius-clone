@@ -47,10 +47,11 @@ export default function Home() {
             learn more <RiArrowRightLine className="my-auto" />
           </h1>
         </div>
-        {trendingTracks.map((track, key) => (
+        {trendingTracks.map((track, idx) => (
           <div className="w-full">
             <SongCard
-              key={key}
+              key={idx}
+              idx={idx}
               title={track.title}
               artist={track.user.name}
               playCount={track.play_count}

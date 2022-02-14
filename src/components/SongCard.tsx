@@ -2,8 +2,10 @@ import react from 'react'
 
 import Song from '../../example.json'
 import { numToHumanReadable, shortenThousands } from '../utils/utilities'
+import { RiVipCrownFill } from 'react-icons/ri'
 
 type SongCardProps = {
+  idx: number
   title: string
   artist: string
   playCount: number
@@ -28,8 +30,16 @@ const formatTime = (time: number) => {
 const SongCard = (props: SongCardProps) => {
   return (
     <div id="parent" className="m-4 flex rounded-xl border p-4 drop-shadow-md">
+      <div className="align-center my-auto mr-2 text-gray-400">
+        {props.idx + 1 <= 5 && <RiVipCrownFill />}
+        <h1 className="text-md">{props.idx + 1}</h1>
+      </div>
       <div id="img">
-        <img src={props['artwork']['150x150']} alt="song image" />
+        <img
+          className="rounded-md"
+          src={props['artwork']['150x150']}
+          alt="song image"
+        />
       </div>
       <div
         id="details"
