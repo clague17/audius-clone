@@ -23,7 +23,7 @@ export default function Home() {
 
   const renderSongsSkeleton = () => {
     return (
-      <div className="w-full pt-10">
+      <div className="mt-32 w-full">
         <SongSkeleton key={1} />
         <SongSkeleton key={2} />
         <SongSkeleton key={3} />
@@ -87,7 +87,13 @@ export default function Home() {
               Here's what's{' '}
               <code className="rounded-md bg-gray-100 p-3 font-mono text-lg text-pink-audius">
                 Trending
-              </code>
+              </code>{' '}
+              this{' '}
+              <button className="hover:animate-pulse">
+                <code className="rounded-md bg-gray-100 p-3 font-mono text-lg text-pink-audius">
+                  week
+                </code>
+              </button>
             </p>
           </div>
         </div>
