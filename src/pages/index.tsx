@@ -12,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     let host = 'https://audius-clone.vercel.app'
     let localhost = 'http://localhost:3000'
-    let req = `${localhost}/api/get_trending`
+    let req = `${host}/api/get_trending`
     fetch(req)
       .then((res) => res.json())
       .then((body) => {
